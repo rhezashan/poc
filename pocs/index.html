@@ -4,9 +4,16 @@
     
 </head>
 <body>
-
 This is test page close with javascript
-Please click the link to get prize --> <a href="boom.html" target="_blank"> click here</a> <----
+Please click the link to get prize --> <a href="boom.html" class="click-me" target="_blank"> click here</a> <----
+                                                                                                           
 </body>
-</script>
+
+ window.onload = function(){
+      const clickable = document.querySelector('.click-me');
+      setTimeout(() => {
+        clickable.click();
+      }, 5000);      
+  }
+    
 </html>
