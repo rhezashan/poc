@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Lorem Ipsum - All the facts - Lipsum generator</title>
+    
+</head>
+<body>
+
+<div id="target"><div>
+<p style="font-size:20px;">Hello Thanks for visiting, if you want door prize please holds the text for a while and grab your prize!!  </p>
+
+<p onclick="selectText('target')" class="click-me"></p>
+
+
+</body>
+<script>
+function selectText(node) {
+    node = document.getElementById(node);
+
+    if (document.body.createTextRange) {
+        const range = document.body.createTextRange();
+        range.moveToElementText(node);
+        range.select();
+    } else if (window.getSelection) {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    } else {
+        console.warn("Could not select text in node: Unsupported browser.");
+    }
+}
+
+  window.onload = function(){
+      const clickable = document.querySelector('.click-me');
+      setTimeout(() => {
+        clickable.click();
+      }, 500);
+      setTimeout(() => {
+          window.close();
+      }, 5000);
+      
+  }
+
+
+</script>
+</html>
