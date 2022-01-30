@@ -1,0 +1,19 @@
+OKay!
+<script>
+function getRandomInt(min, max) {
+                    min = Math.ceil(min);
+                    max = Math.floor(max);
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                  }
+var wins=[]
+
+for(i=0;i<4;i++){
+	wins[i]=open('about:blank');
+	wins[i].eval(`
+		setTimeout(ff=>{window.close()},${getRandomInt(2399,3424)})
+	`);
+	
+}
+
+
+</script>
