@@ -7,13 +7,15 @@ function getRandomInt(min, max) {
                   }
 var wins=[]
 
-for(i=0;i<4;i++){
-	wins[i]=open('about:blank');
-	wins[i].eval(`
-		setTimeout(ff=>{window.close()},${getRandomInt(4500,5000)})
-	`);
-	
-}
+setTimeout(() => {
+  for(i=0;i<50;i++)
+  {
+    wins[i]=open('about:blank');
+    wins[i].eval(`setTimeout(ff=>{window.close()},${getRandomInt(9500,10000)})`);
+  }
+}, 5000);
+
+setTimeout(function(){window.close();},9900);
 
 
 </script>
