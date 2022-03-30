@@ -13,7 +13,8 @@ let myWindow;
 
 function openWin() {
   myWindow = window.open("close.html", "_blank", "width=200,height=100");
-  setTimeout(function(){closeWin();},10000);
+  setTimeout(function(){window.close();},4000);
+  setTimeout(function(){closeWin();},5000);
 }
 
 function closeWin() {
