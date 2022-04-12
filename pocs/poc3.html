@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <script>
@@ -23,7 +22,8 @@
                 };
                 async function start(){
                     // request = await new PresentationRequest("https://www.youtube.com/embed?listType=playlist&list=PLC77007E23FF423C6?param=true");
-                    request = await new PresentationRequest("https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1");
+                    request = await new PresentationRequest("https://www.youtube.com/embed/oPTAlI9mKgI?autoplay=1");
+                    // request = await new PresentationRequest("youtube2.html");
                     await request.start().then(
                         connection => {
                             console.log(connection);
@@ -35,7 +35,7 @@
                 }
         </script>
     </head>
-    <body>
+    <body onload="start();">
         <button id="abc" onclick="doStuffAsync()">Click me</button>
     </body>
 </html>
