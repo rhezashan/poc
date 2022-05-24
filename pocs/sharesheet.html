@@ -1,0 +1,15 @@
+<body>
+	<button id="play">Share</button>
+</body>
+
+<script>
+	var btn=document.getElementById('play');
+        btn.onclick=crash;
+	function crash()
+	{
+	    navigator.share({
+      title: 'My app',
+      url: document.location.href,
+    });
+	}
+</script>
