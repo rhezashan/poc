@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Verification for https://crbug.com/1273841</title>
+<button id="start" disabled="disabled">Loading...</button>
+<script>
+'use strict';
+
+window.addEventListener('load', () => {
+  const startButton = document.getElementById('start');
+
+  if (!('getScreenDetails' in window)) {
+    startButton.setAttribute('disabled', true);
+    startButton.textContent = 'Window Placement API not available';
+    return;
+  }
+
+  const setupListener = async () => {
+    startButton.setAttribute('disabled', true);
+    startButton.textContent = 'Arming listener...';
+
+    let screenDetails;
+    try {
+      screenDetails = await window.getScreenDetails();
+    } catch(e) {
+      startButton.removeAttribute('disabled');
+      startButton.textContent = 'Arm listener';
+
+      return;
+    }
+
+    screenDetails.addEventListener('currentscreenchange', e => {
+      console.log(e);
+      self.print();
+    });
+
+    startButton.textContent = 'Listener armed';
+  };
+
+  startButton.addEventListener('click', () => {
+    setupListener();
+  }, { once: true });
+
+  setupListener();
+}, { once: true });
+</script>
