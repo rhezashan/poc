@@ -1,9 +1,16 @@
 
-<button id="test1">Trigger</button>
+<!DOCTYPE html>
+<html>
+<body onload="func()">
 <script>
-	var test1 = document.getElementById("test1");
-	test1.onclick = () =>{
-		setTimeout(()=>{window.close();},3000);
-	}
-	setTimeout(()=>{window.close();},3500);
+    function func(){
+        setInterval(()=>{
+            w1 = window.open(document.location,"","");
+            setTimeout(()=>{
+                w1.close();
+            },100);
+        },500)
+    }
 </script>
+</body>
+</html>
