@@ -1,0 +1,6 @@
+<script>
+    window.addEventListener('portalactivate', e => {
+        document.body.appendChild(e.adoptPredecessor());
+        location.reload();
+    });
+</script>
