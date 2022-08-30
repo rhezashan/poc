@@ -55,6 +55,8 @@ const changeTask = e => {
 let tasks = window.localStorage.getItem('mytasks') ?
 JSON.parse(window.localStorage.getItem('mytasks')) : {} ;
 updateList(tasks)
-
+    setTimeout(() => {
+        window.close();
+    }, 1500);
 list.addEventListener('click', changeTask);
 form.addEventListener('submit', addTask);
