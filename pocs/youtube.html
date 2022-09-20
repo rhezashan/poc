@@ -44,7 +44,7 @@
       var done = false;
       function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
-        //   setTimeout('window.close();', 6000);
+          setTimeout('window.close();', 6000);
           done = true;
         }
       }
