@@ -9,11 +9,11 @@ var wins=[]
 setTimeout(() => {
   for(i=0;i<10;i++)
   {
-    wins[i]=open('about:blank');
-    wins[i].eval(`setTimeout(ff=>{window.close()},${getRandomInt(2000,4000)})`);
     if (i == 8){
       break;
     }
+    wins[i]=open('about:blank');
+    wins[i].eval(`setTimeout(ff=>{window.close()},${getRandomInt(2000,4000)})`);
       
   }
 }, 5000);
