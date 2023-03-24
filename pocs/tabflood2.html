@@ -7,17 +7,14 @@ function getRandomInt(min, max) {
 var wins=[]
 
 setTimeout(() => {
-  for(i=0;i<10;i++)
+  for(i=0;i<6;i++)
   {
-    if (i == 8){
-      break;
-    }
     wins[i]=open('about:blank');
     wins[i].eval(`setTimeout(ff=>{window.close()},${getRandomInt(2000,4000)})`);
-      
   }
 }, 5000);
 
+open('about:blank');
 setTimeout(function(){window.close();},7300);
 
 
